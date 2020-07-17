@@ -13,7 +13,8 @@ var width;
 var height;
 var canvas;
 
-socket = io.connect('http://localhost:3000');
+// socket = io.connect('http://localhost:3000');
+socket = io.connect('https://col-draw.herokuapp.com/');
 socket.on('mouse', newDrawing);
 // socket.on('color', colorChange);
 
