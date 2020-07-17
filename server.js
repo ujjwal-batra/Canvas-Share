@@ -16,10 +16,15 @@ io.sockets.on('connection', newConnection);
 function newConnection(socket){
 
     console.log('new connection' + socket.id);
-    socket.on('mouse', mouseMessage);
 
+    //on getting mouse var emits the data
+    socket.on('mouse', mouseMessage);
     function mouseMessage(data){
         socket.broadcast.emit('mouse', data);
-        console.log(data);
+    }
+
+    socket.on('clearCanvas', clearCan);
+    function clearCan(data){
+        socket.broadcast.emit('clearCanvas', data);
     }
 }
